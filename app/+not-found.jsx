@@ -1,40 +1,50 @@
-import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
-
-import { Text, View } from '@/components/Themed';
+import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function NotFoundScreen() {
-  return (
-    <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
-      <View style={styles.container}>
-        <Text style={styles.title}>This screen doesn't exist.</Text>
-
-        <Link href="/" style={styles.link}>
-          <Text style={styles.linkText}>Go to home screen!</Text>
-        </Link>
-      </View>
-    </>
-  );
+  const router = useRouter();
+  return(
+    <View style={estilo.container}>
+      <Text style={estilo.title}>Você não deveria estar aqui!</Text>
+      <Image source={require('./../assets/images/sabiaNao.gif')} style={estilo.img} />
+      <Text style={estilo.title}> Erro 404: Page not found!</Text>
+      <Text style={estilo.txt}>Você acessou um link quebrado e por isso está vendo essa mensagem</Text>
+      {/* Botão para voltar usando goBack() */}
+      <Pressable style={estilo.btn} onPress={() => router.back()}>
+        <Text style={estilo.linkTxt}>Retornar para home</Text>
+      </Pressable>
+    </View>
+  )
 }
 
-const styles = StyleSheet.create({
+const estilo = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
     padding: 20,
+    backgroundColor: '#131616'
   },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 28,
+    fontWeight: '800',
+    marginTop: 20,
   },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
+  txt:{
+    color: 'white',
+    fontSize: 16,
+    margin: 14
   },
-  linkText: {
-    fontSize: 14,
-    color: '#2e78b7',
+  btn:{
+    padding: 20,
+    backgroundColor: 'grey',
+    borderRadius: 20,
+    borderWidth: 3,
+    borderColor: 'white'
   },
-});
+  linkTxt:{
+    fontSize:18,
+    fontWeight:'600',
+
+  }
+})
