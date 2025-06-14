@@ -47,6 +47,7 @@ export default function BuscarJogador() {
   return (
     <ScrollView style={estilo.background}>
     <View style={estilo.container}>
+      <Text style={estilo.title}>Lendas do Futebol</Text>
       {/* Campo de entrada para digitar o nome do jogador */}
       <TextInput
         style={estilo.input}
@@ -54,7 +55,6 @@ export default function BuscarJogador() {
         value={jogador}
         onChangeText={setJogador} // atualiza o estado conforme o usuário digita
       />
-
       {/* Botão para iniciar a busca */}
       <Button style= {estilo.btnBuscar} title="Buscar" onPress={buscarJogador} />
 
@@ -87,50 +87,74 @@ export default function BuscarJogador() {
 // Estilos da interface
 const estilo = StyleSheet.create({
     background:{
-        backgroundColor: '#4574C4'
-
+        backgroundColor: '#302681'
     },
     container: {
         paddingRight: 250,
         paddingLeft: 250,
         marginTop: 80,
-        
   },
   btnBuscar:{
-    borderRadius: 30,
+    
+  
   },    
     exibicao:{
         backgroundColor: '#A2B9E2',
         padding:5,
         margin: 20,
         borderRadius: 20,
+          marginLeft: 240,
+        marginRight: 240,
     
   },
+    title:{
+        fontSize: 28,
+        fontWeight: '900',
+        textAlign: 'center',
+        marginBottom:20,
+        margin: 10,
+        backgroundColor: '#2C85C9',
+     
+        borderRadius: 15,
+        padding: 15,
+        borderWidth: 4,
+        borderColor: 'white'
+  },
     input: {
-        borderColor: '#ccc',
+        backgroundColor: 'white',
+        borderColor: 'white',
         borderWidth: 1,
-        padding: 10,
+        
+        
         marginBottom: 10,
+        fontSize: 18
   },
     biografia:{
         fontSize: 18,
-        textAlign: 'justify'  
+        textAlign: 'justify',
+        marginTop: 30,
     },  
     resultado: {
         marginTop: 20,
-        flexDirection: 'row',
+        flexDirection: 'column'
         
   },
      titulo: {
         fontSize: 20,
         fontWeight: 'bold',
+        margin: 'auto'
   },
     img:{
+      flex: 1,
         width: 250,
         height: 300,
         marginLeft: '',
+        
         marginRight: 'auto',
         borderRadius: 15,
+        margin: 'auto',
+        marginTop: 20,
+        
         
   },
 });
